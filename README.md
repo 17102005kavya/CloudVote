@@ -1,49 +1,47 @@
-# My Vote AWS
+# 🗳️ CloudVote – AWS-Powered Voting Application
 
-The application is already written, and all you have to do is deploy it using the technologies you have learned! The system is already familiar to you from the Infrastructure as a Code module, it is a demo application for voting, but this time it is redesigned to use the capabilities of AWS directly: it consists of two front-end components (JS Single-Page Application) and three back-end components ( Python).
+CloudVote is a fully serverless, scalable voting application designed using modern cloud-native architecture. It features two responsive Single Page Applications (SPAs) for users and administrators, along with three backend services that handle voting logic, results processing, and authentication. The system leverages AWS infrastructure to ensure high availability, low latency, and seamless deployment.
 
-We propose the following scheme: publish static files in S3 buckets (one for each frontend), host backends as Lambda functions and make them accessible using API Gateway. We suggest running the vote processor on EC2, although you may prefer pure serverless.
+---
 
-![Screenshot_31](https://user-images.githubusercontent.com/4441068/212905590-feb78ec6-16ba-428e-99bd-c08d3da777ac.png)
+## 🌐 Features
 
+- Cast and record votes in real-time
+- View live voting results
+- Admin dashboard for managing polls
+- Stateless, scalable backend using serverless functions
+- Simple, cost-efficient architecture using AWS-managed services
 
-Note that while all the code has already been written, you still have a lot of work to do in creating resources (queues, DynamoDB tables) and assigning access to them. If necessary, use the hints located in the appropriate folders.
+---
 
-## Used tech
+## 🧰 Tech Stack
 
-* ✅ EC2
-* ✅ S3
-* ✅ CloudFront
-* ✅ database (DynamoDB)
-* ✅ VPC
-* ✅ SQS queue
-* ✅ SNS notifications
-* ✅ Serverless (API Gateway, Lambda)
-* ✅ IAM
+### Frontend
+- **JavaScript (React.js)** – For building dynamic, responsive SPAs
+- **AWS S3** – Static site hosting for both frontends
+- **AWS CloudFront** (optional) – CDN for faster global delivery
 
-Challenge:
-* ⚠️ IaaC (Terraform, CloudFormation, Cloud Development Kit)
-* ⚠️ Billing и Costs
+### Backend
+- **Python** – Core language for backend services
+- **AWS Lambda** – Serverless compute for handling requests
+- **AWS API Gateway** – Public endpoints for frontend-backend communication
 
-## Components
+### Processing
+- **AWS EC2** – (Optional) for long-running vote processing logic
+- *(Can be replaced with serverless alternatives like AWS SQS + Lambda)*
 
-* [API Gateway](./gateway)
-* [voting frontend, Javascript](./voting-frontend)
-* [voting backend, Python](./voting-backend)
-* [vote processor, Python](./vote-processor)
-* [database, DynamoDB](./dynamodb)
-* [result backend, Python](./result-backend)
-* [result frontend, Javascript](./result-frontend)
+### Deployment & Infrastructure
+- **AWS CLI / GitHub** – Deployment and version control
+- **IAM Roles, CORS, API Gateway Stages** – Access control and routing
 
-## Architecture
+---
 
+## ✅ Usage Scenarios
 
-![Screenshot_31](https://user-images.githubusercontent.com/4441068/212555680-28762471-036b-4beb-af78-6c4e38e2276e.png)
+- Polling systems for online surveys
+- Scalable internal voting systems (e.g., employee feedback)
+- Real-time audience participation tools
 
+---
 
-
-
-For terraform, i used serverless lambda instead of ec2
-
-![Screenshot_43](https://user-images.githubusercontent.com/4441068/215296208-a9f390c4-9d32-461e-8b46-0450a737b71f.png)
-
+Feel free to clone, modify, and deploy the project to suit your own voting use case.
